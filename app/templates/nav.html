@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="{{url_for('static',filename = "css/nav.css")}}">
+
+<header>
+
+    <nav>
+        <div class="logo">
+            <a href="#">Diary of an african tech girl</a>
+        </div>
+
+        <ul>
+            <li><a href="{{url_for('main.index')}}">home</a></li>
+            <li><a href="#">quotes</a></li>
+            <li><a href="{{url_for('auth.signup')}}">SignUp</a></li>
+            <li><a href="{{url_for('auth.login')}}">Login</a></li> 
+        </ul>
+    </nav>
+</header>

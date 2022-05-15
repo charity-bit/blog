@@ -44,9 +44,6 @@ class Comment(db.Model):
     date_created = db.Column(db.DateTime(timezone = True),default = func.now())
     author = db.Column(db.Integer,db.ForeignKey('users.id',ondelete="CASCADE"),nullable = False)
     post_id = db.Column(db.Integer,db.ForeignKey('posts.id',ondelete="CASCADE"),nullable = False)
-    comments = db.relationship('Comment',backref = 'post',passive_deletes = True)
-    upvotes = db.relationship('UpVote',backref = 'user',passive_deletes = True)
-    downvotes = db.relationship('DownVote',backref = 'user',passive_deletes = True)
     
 
 

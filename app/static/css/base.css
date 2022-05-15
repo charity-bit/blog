@@ -4,5 +4,54 @@
     box-sizing: border-box;
 }
 body{
-    background-color: red
+    background-color: #fde5dd;
+    padding-top:2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    overflow-x: hidden;
+    
+}
+
+footer{
+    position: absolute;
+    width: 90%;
+}
+footer > ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.terms,.socials{
+    display: flex;
+    justify-content: space-between;
+}
+
+span{
+    color:#111;
+    display: inline;
+}
+
+.a2,.a1{
+    position: relative;
+}
+.a1::after{
+    content: "";
+    background-color: #111;
+    position: absolute;
+    right:-10%;
+    width: 2px;
+    top:50%;
+    transform: translateY(-50%);
+    height:80%;
+}
+.a2::after{
+    content: "";
+    background-color: #111;
+    position: absolute;
+    right:-20%;
+    width: 2px;
+    top:50%;
+    transform: translateY(-50%);
+    height:80%;
 }
