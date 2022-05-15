@@ -15,7 +15,9 @@ body {
 
 footer {
   position: absolute;
+  justify-self: flex-end;
   width: 90%;
+  bottom: 0;
   
 }
 footer > ul {
@@ -30,10 +32,19 @@ footer > ul {
   justify-content: space-between;
 }
 
-span {
-  color: #111;
-  display: inline;
+.main-list li a{
+  font-size: 1.2vw;
+  color: black;
+  display: flex;
+
 }
+.main-list ul{
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+
 
 .a2,
 .a1 {

@@ -3,6 +3,7 @@
 nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -22,14 +23,24 @@ ul{
 ul li a{
     font-size: 1.2vw;
     color: black;
+    display: flex;
+  
 }
-ul li:nth-child(3) a,ul li:nth-child(4) a{
+.btn-s{
     color:#ffd2bd;
     text-decoration: none;
     background-color: black;
-    padding: 1.2vw 3vw;
-    border-radius: 7px;
-   
-   
+    padding: .8vw 3vw;
+    border-radius: 7px;  
+}
+ul li a svg{
+    color: #111;
+    height: 2vw;
+    width: 2vw;
 }
 
+
+.not-admin,.admin,.not-in{
+    display: flex;
+    align-items: center;
+}

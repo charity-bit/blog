@@ -1,4 +1,4 @@
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from . import auth
 from flask import render_template,request,redirect,url_for,flash
 from app.models import User
@@ -74,3 +74,9 @@ def signup():
         
         
     return render_template('auth/signup.html')
+
+@auth.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
+    

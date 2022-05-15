@@ -1,9 +1,18 @@
 {% extends 'base.html' %} 
-{% include 'nav.html' %}
+
 
 {% block styles %} <link rel="stylesheet"
 href="{{url_for('static',filename= "css/signup.css")}}"> {% endblock %} {% block
 content %}
+
+
+<div class="logo">
+  <a href="#" class="lg">Diary of an african tech girl</a>
+  <li class="btn-s"><a href="{{url_for('auth.login')}}" class="btn-s">login</a></li>
+</div>
+
+
+
 <div class="main-container">
  
   <div class="left">
