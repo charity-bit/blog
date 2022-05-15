@@ -7,5 +7,68 @@ href="{{url_for('static',filename= "css/index.css")}}">
 {% endblock %}
 
  {% block content %}
+ 
+<div class="random">
+     <div class="qt">
+         <p>If Java had true garbage collection, most programs would delete themselves upon execution.</p>
+         <a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg> Robert Sewell</a>
+     </div>
+</div>
+
+
+
+ 
+ <section class="recent-area">
+     <div class="posted-r">
+        <h1>Recent Post</h1>
+     </div>
+    
+     <div class="recents">
+        {% for recent in recents %}
+        <div class="one">
+            <div class="ttl">
+                <p>{{recent.title}}</p>
+            </div>
+            <div class="date">
+                <p class="date"><span>posted on:</span> {{recent.date_created.strftime('%Y-%m-%d')}}</p>
+                 <a href="#" class="link">Read Article <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16m-7-7l7 7l-7 7"/></svg></a>
+            </div>
+         
+        </div>
+        {% endfor %}
+     </div>
+    
+    
+
+ </section>
+
+ <div class="all">
+     <h1  class="bg">BLOG <a href=""><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m6.5 17.5l8.25-5.5L6.5 6.5l1-1.5L18 12L7.5 19z"/></svg>all</a></h1>
+    <div class="articles">
+
+        {% for one in all %}
+             <div class="article">
+                 <div class="content">
+                    <p class="ttl">{{one.title}}</p>
+                    <a href="#" class="profile"> <span>By: </span>{{one.user.username}}</a>
+                   <p class="dt"><span>Posted on:</span> {{one.date_created.strftime('%Y-%m-%d')}}</p>
+                   <div class="txt">
+                       <p>{{one.text | safe}}</p>
+                   </div>
+                 </div>
+                 <div class="btns">
+                     <a href="#">Edit</a>
+                     <a href="#">Delete</a>
+                     <a href="{{url_for('main.post',id=one.id)}}">View article</a>
+                 </div>
+             </div>
+
+        {% endfor %}
+
+    </div>
+   
+ </div>
+
+
 
  {% endblock %}

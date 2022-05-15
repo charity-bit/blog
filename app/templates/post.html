@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% include 'nav.html' %}
+
+{% block styles %}
+ <link rel="stylesheet"
+href="{{url_for('static',filename= "css/post.css")}}"> 
+{% endblock %}
+
+ {% block content %}
+<div class="article">
+    <div class="content">
+       <p class="ttl">{{post.title}}</p>
+       <a href="#" class="profile"> <span>By: </span>{{post.user.username}}</a>
+      <p class="dt"><span>Posted on:</span> {{post.date_created.strftime('%Y-%m-%d')}}</p>
+      <div class="txt">
+          <p>{{post.text | safe}}</p>
+      </div>
+    </div>
+    <div class="btns">
+        <a href="{{url_for('main.edit_post',id=post.id)}}">Edit</a>
+        <a href="#">Delete</a>
+        <a href="{{url_for('main.post',id=post.id)}}">View article</a>
+    </div>
+</div>
+
+
+{% endblock %}
