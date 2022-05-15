@@ -1,57 +1,61 @@
-*,*::after,*::before{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    background-color: #fde5dd;
-    padding-top:2%;
-    padding-left: 5%;
-    padding-right: 5%;
-    overflow-x: hidden;
-    
-}
-
-footer{
-    position: absolute;
-    width: 90%;
-}
-footer > ul{
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
+body {
+  background-color: #fde5dd;
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow-x: hidden;
 }
 
-.terms,.socials{
-    display: flex;
-    justify-content: space-between;
+footer {
+  position: absolute;
+  width: 90%;
+  
+}
+footer > ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
 }
 
-span{
-    color:#111;
-    display: inline;
+.terms,
+.socials {
+  display: flex;
+  justify-content: space-between;
 }
 
-.a2,.a1{
-    position: relative;
+span {
+  color: #111;
+  display: inline;
 }
-.a1::after{
-    content: "";
-    background-color: #111;
-    position: absolute;
-    right:-10%;
-    width: 2px;
-    top:50%;
-    transform: translateY(-50%);
-    height:80%;
+
+.a2,
+.a1 {
+  position: relative;
 }
-.a2::after{
-    content: "";
-    background-color: #111;
-    position: absolute;
-    right:-20%;
-    width: 2px;
-    top:50%;
-    transform: translateY(-50%);
-    height:80%;
+.a1::after {
+  content: "";
+  background-color: #111;
+  position: absolute;
+  right: -10%;
+  width: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+}
+.a2::after {
+  content: "";
+  background-color: #111;
+  position: absolute;
+  right: -20%;
+  width: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
 }

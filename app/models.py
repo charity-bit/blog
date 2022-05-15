@@ -1,6 +1,5 @@
-from . import db
 from . import login_manager
-
+from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
@@ -23,6 +22,11 @@ class User(db.Model,UserMixin):
     downvotes = db.relationship('DownVote',backref = 'user',passive_deletes = True)
 
 
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
+
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer,primary_key=True)
@@ -33,7 +37,12 @@ class Post(db.Model):
     comments = db.relationship('Comment',backref = 'post',passive_deletes = True)
     upvotes = db.relationship('UpVote',backref = 'post',passive_deletes = True)
     downvotes = db.relationship('DownVote',backref = 'post',passive_deletes = True)
-    
+
+    def save_post(self):
+        db.session.add(self)
+        db.session.commit()
+
+
     
 
 class Comment(db.Model):

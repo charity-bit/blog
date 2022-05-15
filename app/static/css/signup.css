@@ -75,4 +75,32 @@ button{
     font-size: 1vw;
 }
 
+@media screen and (max-width:576px){
+ 
+    .main-container{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding:0;
+
+    }
+    .left{
+        width: 80%;
+        margin:auto;
+    }
+    form{
+        width: 100%;
+        margin:auto;
+        
+    }
+    .right .techie{
+        display: none;
+    }
+    
+    label,input,button,.submit a{
+        font-size: 2vw;
+    }
+}
+
+
 
