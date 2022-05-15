@@ -57,8 +57,8 @@ href="{{url_for('static',filename= "css/index.css")}}">
                    </div>
                  </div>
                  <div class="btns">
-                     <a href="#">Edit</a>
-                     <a href="#">Delete</a>
+                     <a href="{{url_for('main.edit_post',id=one.id)}}">Edit</a>
+                     <a href="{{url_for('main.delete_post',id=one.id)}}">Delete</a>
                      <a href="{{url_for('main.post',id=one.id)}}">View article</a>
                  </div>
              </div>

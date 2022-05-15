@@ -1,8 +1,8 @@
-from crypt import methods
-from unicodedata import category
+
 from flask_login import current_user
 
 from app.models import Post
+from app import db
 from . import main
 from flask import render_template,redirect,request,url_for,flash
 from .forms import PostForm
@@ -22,7 +22,7 @@ def index():
     
     return render_template('index.html',recents = recents,all = all)
 
-@main.route('/add-post',methods = ['GET','POST'])
+@main.route('/posts/add-post',methods = ['GET','POST'])
 def add_post():
     user_id = current_user.id
     form =  PostForm()
@@ -54,12 +54,18 @@ def post(id):
 @main.route('/posts/delete/<int:id>')
 def delete_post(id):
     post = Post.query.get_or_404(id)
-    if post:
-        pass
-
+    current_user_id = current_user.id
+    if current_user_id != 1:
+        flash("You are not allowed to delete this post",category="error")
     else:
-        flash("post cannot be found",category="error")
-    return redirect(url_for('main.post',id=post.id))
+        if post:
+            db.session.delete(post)
+            db.session.commit()
+            flash("Post deleted")         
+        else:
+            flash("Post could not be found", category="error")
+            
+    return redirect(url_for('main.index'))
 
 @main.route('/posts/edit-post/<int:id>',methods = ['GET','POST'])
 def edit_post(id):
@@ -83,5 +89,9 @@ def edit_post(id):
     
             else:
                 flash('Post cannot be found',category="error")
+    else:
+        form.title.data = post.title
+        form.body.data = post.text
+
 
     return render_template('admin/editpost.html',form = form)
