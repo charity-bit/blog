@@ -1,6 +1,6 @@
 .recents{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 5%;
@@ -8,7 +8,7 @@
 }
 .one{
     width: 30%;
-    color: #ffd2bd;
+    color: #d1d1d1;
     background-color: #231F20;
     padding: 2%;
     border-radius: 5px;
@@ -24,7 +24,8 @@
     align-items: center;
     font-size: 1vw;
     text-decoration: none;
-    color: #ffd2bd;
+
+    color: #d1d1d1;
 }
 .date{
     font-size: .8vw;
@@ -116,7 +117,7 @@
     font-size: 1vw;
     align-self: flex-start;
     background-color: #111;
-    color: #ffd2bd;
+    color: #d1d1d1;
     padding: 1.5% 7%;
     text-decoration: none;
     border:none;
@@ -157,7 +158,7 @@
         font-size: 1vw;
         align-self: flex-start;
         background-color: #111;
-        color: #ffd2bd;
+        color: #d1d1d1;
         padding: 1%;
         border-radius: 5px;
         text-decoration: none;
@@ -206,7 +207,7 @@
 .auth p:nth-child(1){
     font-size: .7vw !important;
     background-color: #111;
-    color:#ffd2bd;
+    color:#d1d1d1;
     padding: 0.7% 1.5%;
     border-radius: 15px;
 }

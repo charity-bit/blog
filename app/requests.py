@@ -1,6 +1,6 @@
 import urllib.request
 import json
-from .models import Quote
+
 
 RANDOM_QUOTES_URL = None
 

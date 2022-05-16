@@ -1,5 +1,5 @@
 .main {
-    background-color: rgba(0, 0, 0, 0.7);
+   
     width: 80%;
     margin: 10% auto;
     min-height: 80vh;
@@ -13,14 +13,14 @@
     top: 0;
     margin-top: -2%;
     left: 5%;
-    color: #fff;
+    color: #111;
     font-size: 1.5rem;
   }
   .prof::before {
     display: inline;
     content: "";
     position: absolute;
-    background-color: #ffd2bd;
+    background-color: #ebebeb;
     left: -2%;
     top: 50%;
     transform: translateY(-50%);
@@ -30,16 +30,16 @@
   }
   
   .profile {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #111;
     color: #fff;
     display: flex;
-    width: 60%;
+    width: 100%;
     margin: 5% auto;
     padding: 5%;
     border-radius: 2%;
   }
   .details input {
-    width: 80%;
+    width: 100%;
   }
   .img {
     width: 50%;
@@ -68,10 +68,10 @@
   }
   
   .pic_form input {
-    padding: 4% 10%;
-    background-color: #ffd2bd;
     align-self: flex-start;
-    color: #fff;
+    background-color: #ebebeb;
+    align-self: flex-start;
+    color: #111;
     border: none;
   }
   
@@ -79,10 +79,11 @@
     color: #fff;
     text-decoration: none;
     margin-top: 20px;
+    
   }
   .img a {
     padding: 6% 5%;
-    background-color: #ffd2bd;
+    background-color: #ebebeb;
   }
   .details {
     margin-left: -15%;
@@ -92,7 +93,7 @@
     flex-direction: column;
   }
   .ttl {
-    color: #ffd2bd;
+    color: #d1d1d1;
   }
   .update {
     display: flex;
@@ -100,23 +101,27 @@
     margin-top: 10%;
   }
   .update input {
-    padding: 6% 10%;
     border-radius: 7px;
     border: none;
+    align-self: flex-start !important;
+    padding: 2% !important;
+    width: 30% !important;
     text-decoration: none;
-    width: 80%;
-    color: #fff;
-    background-color: #ffd2bd;
+    color: #111;
+    background-color: #ebebeb;
   }
   .details a {
-    padding: 6% 15%;
+    padding: 2% !important;
+    width: 30% !important;
+    text-align: center;
+    align-self:  flex-start !important;
     border-radius: 7px;
-    border: 1px solid #ffd2bd;
+    border: 1px solid #d1d1d1;
     text-decoration: none;
     color: #fff;
   }
   .details a svg {
-    color: #ffd2bd;
+    color: #d1d1d1;
   }
   
   .email input,
@@ -129,7 +134,13 @@
     border-right: none;
     border-left: none;
     outline: none;
-    border-bottom: 1px solid #ffd2bd;
+    border-bottom: 1px solid #d1d1d1;
+  }
+  .up{
+    padding: 2% !important;
+    width: 30% !important;
+    text-align: center;
+    align-self:  flex-start !important;
   }
   
   @media screen and (max-width: 960px) {

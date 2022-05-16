@@ -1,7 +1,8 @@
 
+from cmath import log
 from app.models import Post,User,Comment
 from app import db,photos
-from flask_login import current_user
+from flask_login import current_user, login_required
 from . import main
 from flask import render_template,redirect,request,url_for,flash
 from .forms import PostForm
@@ -16,15 +17,30 @@ def index():
     recents = []  # query recent posts
     all = Post.query.all()
     rev = all[::-1]
+    
 
-    for i in range(3):
-        recents.append(rev[i])
+    if len(rev) == 0:
+        recents = []
+        print(len(recents))
+
+    if len(rev) > 0 and len(rev) <=  3:
+        for i in range(len(rev)):
+            recents.append(rev[i])
+            print(len(recents))
+    if len(rev) > 3:
+        for i in range(3):
+            recents.append(rev[i])
+            
     
-       
+
+
+   
+
     
-    return render_template('index.html',recents = recents,all = all)
+    return render_template('index.html',recents = recents,all = rev)
 
 @main.route('/posts/add-post',methods = ['GET','POST'])
+@login_required
 def add_post():
     user_id = current_user.id
     form =  PostForm()
@@ -54,6 +70,7 @@ def post(id):
     return render_template('post.html',post = post)
 
 @main.route('/posts/delete/<int:id>')
+@login_required
 def delete_post(id):
     post = Post.query.get_or_404(id)
     current_user_id = current_user.id
@@ -70,6 +87,7 @@ def delete_post(id):
     return redirect(url_for('main.index'))
 
 @main.route('/posts/edit-post/<int:id>',methods = ['GET','POST'])
+@login_required
 def edit_post(id):
     post = Post.query.get_or_404(id)
     current_user_id = current_user.id
@@ -104,14 +122,14 @@ def profile(id):
     id = 1
     user = User.query.filter_by(id = id).first()
     if user is None:
-        flash("No such user",category="error")
-        abort(404)
+        flash("No such user",category="error")      
     
     return render_template('admin/profile.html',user = user,id = id)
 
 
 
 @main.route('/user/<int:id>/edit/pic',methods = ['POST'])
+@login_required
 def update_pic(id):
 
     user = User.query.filter_by(id = id).first()
@@ -130,8 +148,9 @@ def update_pic(id):
     return redirect(url_for('main.profile',id = id))
 
 @main.route('/user/<int:id>/edit',methods = ['POST','GET'])
+@login_required
 def edit_profile(id):
-    current_user_id = current_user
+    current_user_id = current_user.id
     user = User.query.filter_by(id = 1).first()
     id = 1
     
@@ -140,12 +159,35 @@ def edit_profile(id):
     
     else:
         if request.method == 'POST':
-            pass
+            username = request.form.get('username')
+            email = request.form.get('email')
+            bio = request.form.get('bio')
+            
+            usernamef = User.query.filter_by(username = username).first()
+            emailf = User.query.filter_by(email = email).first()
+            if usernamef and usernamef is not user.username:
+                username =  user.username 
+                
+            
+            if emailf and emailf is not user.email:
+                email = user.email 
+                
+            
+            user.email = email
+            user.username = username
+            user.bio = bio
+            db.session.add(user)
+            db.session.commit()
+
+            return redirect(url_for('main.profile',id=id))
+        
+            
     
 
     return render_template('admin/editprofile.html',user = user,id = id)
 
 @main.route('/add-comment/<int:id>',methods=['POST','GET'])
+@login_required
 def add_comment(id):
     comment = request.form.get('comment')
 
@@ -163,6 +205,7 @@ def add_comment(id):
     return redirect(url_for('main.index'))
 
 @main.route('/comments/delete/<int:id>')
+@login_required
 def delete_comment(id):
     comment = Comment.query.get_or_404(id)
     #   current_user.id == comment.author or current_user.id == one.author

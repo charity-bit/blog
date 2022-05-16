@@ -17,7 +17,7 @@
    
 }
 .btn-s{
-    color:#ffd2bd;
+    color:#d1d1d1;
     text-decoration: none;
     background-color: black;
     padding: .8vw 3vw;
@@ -81,7 +81,7 @@ input{
     border-radius: 5px;
 }
 button{
-    background-color:#ffd2bd;
+    background-color:#ebebeb;
     border-radius: 3%;
     padding: 4% 15%;
     font-size: 1.2vw;
@@ -95,7 +95,7 @@ button{
     gap: 2%;
 }
 .submit a{
-    color:#ffd2bd;
+    color:#d1d1d1;
     font-size: 1vw;
 }
 

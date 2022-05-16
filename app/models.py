@@ -73,14 +73,6 @@ class DownVote(db.Model):
     post_id = db.Column(db.Integer,db.ForeignKey('posts.id',ondelete="CASCADE"),nullable = False)
     
 
-class Quote:
-    def __init__(self,id,author,quote,url):
-        self.id  = id,
-        self.author = author
-        self.quote = quote
-        self.url = url
-
-
 
    
 

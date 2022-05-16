@@ -1,5 +1,5 @@
-.ttl{
-    font-size: 2vw;
+.ttl {
+  font-size: 2vw;
 }
 form {
   display: flex;
@@ -8,9 +8,9 @@ form {
   width: 80%;
   margin: 5% auto;
   padding: 5%;
-  box-shadow: 0px 3px 31px 0px rgba(160, 110, 87, 0.75);
-  -webkit-box-shadow: 0px 3px 31px 0px rgba(173, 141, 125, 0.75);
-  -moz-box-shadow: 0px 3px 31px 0px rgba(187, 127, 99, 0.75);
+  box-shadow: 10px 1px 83px -3px rgba(235,235,235,0.75) inset;
+-webkit-box-shadow: 10px 1px 83px -3px rgba(235,235,235,0.75) inset;
+-moz-box-shadow: 10px 1px 83px -3px rgba(235,235,235,0.75) inset;
   border-radius: 10px;
 }
 .title,
@@ -22,10 +22,9 @@ form {
 label,
 input {
   font-size: 1vw;
-  
 }
-label{
-    font-weight: 500;
+label {
+  font-weight: 500;
 }
 input[type="text"] {
   padding: 1%;
@@ -35,13 +34,13 @@ input[type="text"] {
 input[type="ckeditor"] {
   background-color: transparent;
 }
-input[type='submit']{
-    font-size: 1vw;
-    align-self: flex-start;
-    background-color: #111;
-    color: #ffd2bd;
-    padding: 1.5% 7%;
-    border:none;
-    border-radius: 5px;
-    font-weight: 500;
+input[type="submit"] {
+  font-size: 1vw;
+  align-self: flex-start;
+  background-color: #111;
+  color: #d1d1d1;
+  padding: 1.5% 7%;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
 }

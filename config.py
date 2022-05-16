@@ -6,7 +6,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:qwertyip@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'my_key'
-    UPLOADED_PHOTOS_DEST='/app/static/photos'
+    UPLOADED_PHOTOS_DEST='app/static/photos'
     RANDOM_QUOTES_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
 
 
