@@ -127,3 +127,53 @@
 .txt{
     font-size: 1.3vw;
 }
+
+.comment p a{
+    color: #111;
+    font-weight: 600;
+}
+
+
+
+#comment-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:10px;
+}
+#comment-form input{
+    width: 20vw;
+    height: 5vw;
+    padding: 1px 5px;
+    font-size: .8vw;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+
+}
+#comment-form button{
+  
+        font-size: 1vw;
+        align-self: flex-start;
+        background-color: #111;
+        color: #ffd2bd;
+        padding: 1%;
+        border-radius: 5px;
+        text-decoration: none;
+        border:none;
+        font-weight: 500;
+}
+
+.some-comments{
+    display: flex;
+    flex-direction: column;
+    font-size: 1vw;
+    margin-top: 5%;
+}
+.comment-cont{
+    font-size: 1vw;
+}
+.comment-cont p{
+    font-size: 1vw !important;
+}

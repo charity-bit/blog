@@ -1,11 +1,15 @@
 
-from flask_login import current_user
 
-from app.models import Post
-from app import db
+
+from app.models import Post,User,Comment
+from app import db,photos
+from flask_login import current_user
 from . import main
 from flask import render_template,redirect,request,url_for,flash
 from .forms import PostForm
+
+
+
 
 @main.route('/')
 def index():
@@ -95,3 +99,67 @@ def edit_post(id):
 
 
     return render_template('admin/editpost.html',form = form)
+
+
+@main.route('/user/profile/<int:id>')
+def profile(id):
+    id = 1
+    user = User.query.filter_by(id = id).first()
+    if user is None:
+        flash("No such user",category="error")
+        abort(404)
+    
+    return render_template('admin/profile.html',user = user,id = id)
+
+
+
+@main.route('/user/<int:id>/edit/pic',methods = ['POST'])
+def update_pic(id):
+
+    user = User.query.filter_by(id = id).first()
+    current_user_id = current_user.id
+
+    if current_user_id != id:
+        flash("You are not allowed to upload the profile picture",category="error")
+
+    else:
+        if 'photo' in request.files:
+            photo = photos.save(request.files['photo'])
+            filename= f'photos/{photo}'
+            user.pic_path = filename
+            db.session.commit()
+
+    return redirect(url_for('main.profile',id = id))
+
+@main.route('/user/<int:id>/edit',methods = ['POST','GET'])
+def edit_profile(id):
+    current_user_id = current_user
+    user = User.query.filter_by(id = 1).first()
+    id = 1
+    
+    if current_user_id != id:
+        flash('You are not allowed to edit this page',category="error")
+    
+    else:
+        if request.method == 'POST':
+            pass
+    
+
+    return render_template('admin/editprofile.html',user = user,id = id)
+
+@main.route('/add-comment/<int:id>',methods=['POST','GET'])
+def add_comment(id):
+    comment = request.form.get('comment')
+
+    if not comment:
+        flash("comment cannot be empty",category="error")
+    else:
+        post = Post.query.filter_by(id = id) 
+        if post:
+            comment = Comment(comment = comment , post_id = id,author = current_user.id)
+            db.session.add(comment)
+            db.session.commit()
+        else:
+            flash('post not found',category="error")
+    
+    return redirect(url_for('main.index'))

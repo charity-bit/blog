@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+import babel
 
 from flask import Flask
 from config import config_options
@@ -49,6 +50,14 @@ def create_app(config_name):
     app.register_blueprint(main_blueprint)
      
 
+    @app.template_filter()
+    def format_date(value):
+        months = ('January','February','March','April','May','June','July','August','September','October','November','December')
+        month = months[value.month- 1]
+        hour = str(value.hour).zfill(2)
+        minutes = str(value.minute).zfill(2)
+        #  posted June 22 2022 at 
+        return "{} {} {} at {}:{}".format(month,value.day,value.year,hour,minutes)
    
 
 

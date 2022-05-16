@@ -50,17 +50,73 @@ href="{{url_for('static',filename= "css/index.css")}}">
              <div class="article">
                  <div class="content">
                     <p class="ttl">{{one.title}}</p>
-                    <a href="#" class="profile"> <span>By: </span>{{one.user.username}}</a>
+                    <a href="{{url_for('main.profile',id = 1)}}" class="profile"> <span>By: </span>{{one.user.username}}</a>
                    <p class="dt"><span>Posted on:</span> {{one.date_created.strftime('%Y-%m-%d')}}</p>
                    <div class="txt">
                        <p>{{one.text | safe}}</p>
                    </div>
+                   <div class="comments-cont">
+
+                    <!-- comments -->
+                      <div class="comment">
+                          <!-- btn comment -->
+                        <p><a data-bs-toggle="collapse" href="#comments-{{one.id}}" role="button" aria-expanded="false" aria-controls="comments">comment <span>0</span></a></p>
+                      </div>
+                      <!-- data  -->
+                         <div class="collap" id="comments-{{one.id}}">
+                       
+                              <div class="comment-form">
+                                  <form method="post" id="comment-form" action="/add-comment/{{one.id}}">
+                                      <input type="text" id ='comm' name="comment" placeholder="add comment">
+                                      <button id="submit" type="submit">comment</button>
+                                  </form>
+
+                              </div>
+
+                              <div class="some-comments">
+                                {% for comment in one.comments %}
+                                <div class="comment-cont">
+                                    <div class="author">
+                                        <p>{{comment.user.username}}</p>
+                                        <p>{{comment.date_created | format_date()}}</p>
+                                    </div>
+                                    <p>{{comment.comment}}</p>
+                                </div>
+                               
+
+
+                                {% endfor %}
+                           </div>
+                          </div>
+                    
+                   </div>
+                  
+
+
                  </div>
-                 <div class="btns">
+                
+
+                 {% if current_user.is_authenticated %}
+                      {% if current_user.id == 1%}
+                    <div class="btns">
                      <a href="{{url_for('main.edit_post',id=one.id)}}">Edit</a>
                      <a href="{{url_for('main.delete_post',id=one.id)}}">Delete</a>
                      <a href="{{url_for('main.post',id=one.id)}}">View article</a>
-                 </div>
+                     </div>
+         
+                     {% else %}
+                        <div class="btns">
+                     <a href="{{url_for('main.post',id=one.id)}}">View article</a>
+                          </div>
+         
+                 {% endif %}
+                      {% else %}
+                      <div class="btns">
+                        <a href="{{url_for('main.post',id=one.id)}}">View article</a>
+                             </div>
+            
+         
+             {% endif %}
              </div>
 
         {% endfor %}

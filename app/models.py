@@ -13,6 +13,7 @@ class User(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key=True)
     email = db.Column(db.String(150),unique=True)
     username = db.Column(db.String(150),unique=True)
+    bio = db.Column(db.Text)
     password = db.Column(db.String(150),unique=True)
     pic_path = db.Column(db.String(255),default='avtar.png')
     date_joined = db.Column(db.DateTime(timezone = True),default = func.now())
@@ -30,7 +31,7 @@ class User(db.Model,UserMixin):
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer,primary_key=True)
-    title = db.Column(db.Text,nullable = False)
+    title = db.Column(db.String(50),nullable = False)
     text = db.Column(db.Text,nullable = False)
     pic_path = db.Column(db.String(255))
     date_created = db.Column(db.DateTime(timezone = True),default = func.now())
@@ -50,7 +51,7 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer,primary_key=True)
-    text = db.Column(db.String(200),nullable = False)
+    comment = db.Column(db.String(200),nullable = False)
     date_created = db.Column(db.DateTime(timezone = True),default = func.now())
     author = db.Column(db.Integer,db.ForeignKey('users.id',ondelete="CASCADE"),nullable = False)
     post_id = db.Column(db.Integer,db.ForeignKey('posts.id',ondelete="CASCADE"),nullable = False)

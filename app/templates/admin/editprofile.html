@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% include 'nav.html' %}
+{% block styles %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static',filename = 'css/update.css')}}"
+/>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main">
+  <p class="prof">Edit</p>
+      <div class="profile">
+      <div class="img">
+        {% if user.pic_path %}
+        <img src="{{url_for('static',filename=user.pic_path)}}"alt="">
+        {% else %}
+        <img src="../../static/photos/pic.jpg" alt="">
+        {% endif%}
+
+        {% if current_user.id == id %}
+        <form class="pic_form"
+         action="{{url_for('main.update_pic', id = id)}}" method="post" enctype="multipart/form-data">
+         <label for="photo">
+           Upload profile picture 
+          <input type="file" id ="photo"
+          name="photo" class="form-control" required>
+         </label>
+          
+          <input type="submit">
+         </form>
+          {% endif %}
+       </div>
+     
+            <form class="details" method="post">
+         <div class="uname">
+           <p class="ttl">Username:</p>
+           <input value={{user.username}} name="username"/>
+           {%if error %}
+           <p style="color: red;">{{error}}</p>
+           {% endif %}
+         </div>
+         <div class="email">
+          <p class="ttl">Email:</p>
+          <input value={{user.email}} name="email" />
+          {%if error %}
+          <p style="color: red;">{{error}}</p>
+          {% endif %}
+        </div>
+        <div class="bio">
+          <p class="ttl">Bio:</p>
+          {% if user.bio %}
+          <input value={{user.bio}} name="bio" />
+          {% else %}
+            <input type="text" value="bio" name="bio">
+          {% endif %}
+        </div>
+        {% if current_user.id == id %}
+        <div class="update">
+            <input type="submit" value="Save">
+            <a href="{{url_for('main.profile',id = id)}}">
+                Cancel</a>
+                {% endif %}
+
+        </div>
+         
+        
+
+            </form>
+        </div>
+
+    
+
+</div>
+
+{% endblock %}

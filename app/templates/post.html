@@ -16,11 +16,28 @@ href="{{url_for('static',filename= "css/post.css")}}">
           <p>{{post.text | safe}}</p>
       </div>
     </div>
-    <div class="btns">
-        <a href="{{url_for('main.edit_post',id=post.id)}}">Edit</a>
-        <a href="{{url_for('main.delete_post',id=post.id)}}">Delete</a>
-        <a href="{{url_for('main.post',id=post.id)}}">View article</a>
-    </div>
+    {% if current_user.is_authenticated %}
+        {% if current_user.id == 1%}
+        <div class="btns">
+            <a href="{{url_for('main.edit_post',id=post.id)}}">Edit</a>
+            <a href="{{url_for('main.delete_post',id=post.id)}}">Delete</a>
+            <a href="{{url_for('main.post',id=post.id)}}">View article</a>
+        </div>
+
+        {% else %}
+        <div class="btns">
+            <a href="{{url_for('main.post',id=post.id)}}">View article</a>
+        </div>
+
+        {% endif %}
+
+        {% else %}
+        <div class="btns">
+          <a href="{{url_for('main.post',id=post.id)}}">View article</a>
+               </div>
+
+    {% endif %}
+    
 </div>
 
 
