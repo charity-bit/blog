@@ -1,6 +1,4 @@
 
-
-
 from app.models import Post,User,Comment
 from app import db,photos
 from flask_login import current_user
@@ -162,4 +160,21 @@ def add_comment(id):
         else:
             flash('post not found',category="error")
     
+    return redirect(url_for('main.index'))
+
+@main.route('/comments/delete/<int:id>')
+def delete_comment(id):
+    comment = Comment.query.get_or_404(id)
+    #   current_user.id == comment.author or current_user.id == one.author
+    if comment:
+        if current_user.id == comment.author or current_user.id == comment.post.author:
+            db.session.delete(comment)
+            db.session.commit()
+        else:
+            
+            flash("You are not allowed to delete this comment")
+    else:
+        flash("Comment could not be found",category = "error")
+
+
     return redirect(url_for('main.index'))
