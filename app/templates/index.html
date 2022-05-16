@@ -62,7 +62,7 @@ endblock %} {% block content %}
               stroke-linejoin="round"
               stroke-width="2"
               d="M4 12h16m-7-7l7 7l-7 7"
-            /></svg
+            /></svg>
         ></a>
       </div>
     </div>
@@ -87,7 +87,7 @@ endblock %} {% block content %}
           fill="currentColor"
           fill-rule="evenodd"
           d="m6.5 17.5l8.25-5.5L6.5 6.5l1-1.5L18 12L7.5 19z"
-        /></svg
+        /></svg>
       >all</a
     >
   </h1>
@@ -116,12 +116,12 @@ endblock %} {% block content %}
                 role="button"
                 aria-expanded="false"
                 aria-controls="comments"
-                >comment <span>0</span></a
+                >comment <span>{{one.comments | length}}</span></a
               >
             </p>
           </div>
           <!-- data  -->
-          <div class="collap" id="comments-{{one.id}}">
+          <div class="collapse" id="comments-{{one.id}}">
             <div class="comment-form">
               <form
                 method="post"
@@ -147,6 +147,15 @@ endblock %} {% block content %}
                     <div class="auth">
                       <p>{{comment.user.username}}</p>
                       <p>{{comment.date_created | format_date()}}</p>
+
+                      {% if current_user.id == comment.author or current_user.id == one.author %}
+                      <a class="delete-c"
+                       href="/comments/delete/{{comment.id}}"><svg
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"/></svg></a>
+
+                      {% endif %}
+
+
                     </div>
                     <p class="actual-n">{{comment.comment}}</p>
                   </div>
@@ -156,6 +165,14 @@ endblock %} {% block content %}
                     <div class="n-auth">
                       <p>{{comment.user.username}}</p>
                       <p>{{comment.date_created | format_date()}}</p>
+                      {% if current_user.id == comment.author or current_user.id == one.author %}
+                      <a class="delete-c"
+                      href="/comments/delete/{{comment.id}}"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"/></svg></a>
+
+                      {% endif %}
+                       
+                
+
                     </div>
                     <p class="actual">{{comment.comment}}</p>
                   </div>
