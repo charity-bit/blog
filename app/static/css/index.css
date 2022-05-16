@@ -169,6 +169,7 @@
     display: flex;
     flex-direction: column;
     font-size: 1vw;
+    gap:10px;
     margin-top: 5%;
 }
 .comment-cont{
@@ -176,4 +177,52 @@
 }
 .comment-cont p{
     font-size: 1vw !important;
+}
+
+
+.auth{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.n-auth{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.n-auth p:nth-child(1){
+    font-size: .9vw !important;
+    background-color: transparent;
+    font-weight: 600;
+    color: #111;
+    padding: 0.7% 1.5%;
+    border-radius: 15px;
+
+}
+.n-auth p:nth-child(2){
+    font-size: .7vw !important;
+}
+.auth p:nth-child(1){
+    font-size: .7vw !important;
+    background-color: #111;
+    color:#ffd2bd;
+    padding: 0.7% 1.5%;
+    border-radius: 15px;
+}
+.auth p:nth-child(2){
+    font-size: .7vw !important;
+}
+
+.actual-n{
+    font-size: .9vw !important;
+    margin-top: -1%;
+    margin-left: 1%;
+}
+
+.actual{
+    font-size: .9vw !important;
+    margin-top: -2%;
+    margin-left: 1.5%;
+
 }
