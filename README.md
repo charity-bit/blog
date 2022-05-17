@@ -63,7 +63,7 @@ Javascript
 
 ## Licence
 
-   copyright © Charity 2022 - <a href=""> MIT </a>
+   copyright © Charity 2022 - <a href="https://github.com/charity-bit/blog/blob/main/LICENSE"> MIT </a>
 
 ## Authors Info
 
