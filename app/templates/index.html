@@ -112,7 +112,7 @@ endblock %} {% block content %}
           <span>Posted on:</span> {{one.date_created | format_date()}}
         </p>
         <div class="txt">
-          <p>{{(one.text | truncate (450,True , '...'))| safe }}</p>
+          <p><div>{{(one.text | truncate (450,True , '...'))| safe }}</div></p>
         </div>
         <div class="comments-cont">
           <!-- comments -->
