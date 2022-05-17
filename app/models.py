@@ -19,9 +19,7 @@ class User(db.Model,UserMixin):
     date_joined = db.Column(db.DateTime(timezone = True),default = func.now())
     posts = db.relationship('Post',backref = 'user',passive_deletes = True)
     comments = db.relationship('Comment',backref = 'user',passive_deletes = True)
-    upvotes = db.relationship('UpVote',backref = 'user',passive_deletes = True)
-    downvotes = db.relationship('DownVote',backref = 'user',passive_deletes = True)
-
+   
 
     def save_user(self):
         db.session.add(self)
@@ -37,9 +35,7 @@ class Post(db.Model):
     date_created = db.Column(db.DateTime(timezone = True),default = func.now())
     author = db.Column(db.Integer,db.ForeignKey('users.id',ondelete="CASCADE"),nullable = False)
     comments = db.relationship('Comment',backref = 'post',passive_deletes = True)
-    upvotes = db.relationship('UpVote',backref = 'post',passive_deletes = True)
-    downvotes = db.relationship('DownVote',backref = 'post',passive_deletes = True)
-
+   
     def save_post(self):
         db.session.add(self)
         db.session.commit()
@@ -58,20 +54,6 @@ class Comment(db.Model):
     
 
 
-class UpVote(db.Model):
-    __tablename__ = 'upvotes'
-    id = db.Column(db.Integer,primary_key=True)
-    author = db.Column(db.Integer,db.ForeignKey('users.id',ondelete="CASCADE"),nullable = False)
-    post_id = db.Column(db.Integer,db.ForeignKey('posts.id',ondelete="CASCADE"),nullable = False)
-    
-
-
-class DownVote(db.Model):
-    __tablename__ = 'downvotes'
-    id = db.Column(db.Integer,primary_key = True)
-    author = db.Column(db.Integer,db.ForeignKey('users.id',ondelete="CASCADE"),nullable = False)
-    post_id = db.Column(db.Integer,db.ForeignKey('posts.id',ondelete="CASCADE"),nullable = False)
-    
 
 
    
