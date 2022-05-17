@@ -181,6 +181,11 @@ def edit_profile(id):
 
             return redirect(url_for('main.profile',id=id))
         
+       
+            
+
+            
+        
             
     
 
