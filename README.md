@@ -12,7 +12,7 @@
 <br>
 
 <h1>Home Page</h1>
-<img src='./images/img.png' alt="homepag>
+<img src='./images/img.png' alt="homepage">
 <br>
 
 </br>
