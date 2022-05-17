@@ -54,7 +54,7 @@ def add_post():
             if not content:
                 flash('Content of the post cannot be empty',category = 'error')
             elif not title:
-                flash('title of the article cannot be empty')
+                flash('title of the article cannot be empty',category="error")
             else:
                 new_post = Post(title = title, text = content,author = current_user.id)
                 new_post.save_post()
@@ -75,12 +75,12 @@ def delete_post(id):
     post = Post.query.get_or_404(id)
     current_user_id = current_user.id
     if current_user_id != 1:
-        flash("You are not allowed to delete this post",category="error")
+        flash("You are not allowed to delete the post",category="error")
     else:
         if post:
             db.session.delete(post)
             db.session.commit()
-            flash("Post deleted")         
+            flash("Post deleted",category="success")         
         else:
             flash("Post could not be found", category="error")
             
@@ -95,7 +95,7 @@ def edit_post(id):
 
     if request.method == 'POST':          
         if  current_user_id !=1:
-            flash('You cannot edit this post',category="error")
+            flash('You cannot edit the post',category="error")
         else:
             if post:
                 post.title = form.title.data
@@ -155,7 +155,7 @@ def edit_profile(id):
     id = 1
     
     if current_user_id != id:
-        flash('You are not allowed to edit this page',category="error")
+        flash('You are not allowed to edit the page',category="error")
     
     else:
         if request.method == 'POST':
@@ -220,7 +220,7 @@ def delete_comment(id):
             db.session.commit()
         else:
             
-            flash("You are not allowed to delete this comment")
+            flash("You are not allowed to delete this comment",category="error")
     else:
         flash("Comment could not be found",category = "error")
 

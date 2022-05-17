@@ -12,10 +12,20 @@
     background-color: #231F20;
     padding: 2%;
     border-radius: 5px;
+    transition: all 1s ease-in;
+}
+
+.one:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #d1d1d1;
+    color:#111;
+}
+.one:hover .link{
+    color: #111;
 }
 .ttl{
-    font-size: 2vw;
-    font-weight: 600;
+    font-size: 1.7vw;
+    font-weight: 500;
 }
 
 .link{
@@ -24,8 +34,11 @@
     align-items: center;
     font-size: 1vw;
     text-decoration: none;
-
+    transition: color 1s ease-in-out;
     color: #d1d1d1;
+}
+.link:hover{
+    color: #111;
 }
 .date{
     font-size: .8vw;
@@ -79,6 +92,8 @@
     font-size: 1vw !important;
 }
 
+
+
 .articles{
     display: flex;
     flex-direction: column;
@@ -94,6 +109,7 @@
     margin: 5% auto;
     padding: 5%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #d1d1d1;
     border-radius: 10px;
 }
 .content p:nth-child(1){

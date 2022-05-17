@@ -55,9 +55,9 @@ def signup():
         elif len(username) < 2 and len(username) > 15:
             flash("Username must be between 2 and 15 letters",category = "error")
         elif len(password1) < 8 and len(password1) > 12:
-            flash("Password must be between 8 and 12")
+            flash("Password must be between 8 and 12",category="error")
         elif len(password2) < 8 and len(password2) > 12:
-            flash("confirm password must be between 8 and 12")
+            flash("confirm password must be between 8 and 12",category="error")
 
         elif not re.fullmatch(regex,email):
             flash("please enter a valid email",category="error")
@@ -78,5 +78,6 @@ def signup():
 @auth.route('/logout')
 def logout():
     logout_user()
+    flash("Logged out successfully",category="success")
     return redirect(url_for('main.index'))
     
