@@ -28,6 +28,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    overflow-x: hidden;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
     
 }
 body{
@@ -102,14 +108,23 @@ button{
 }
 
 
-@media screen and (max-width:576px){
+@media screen and (max-width:576px) and (min-width:100px)  {
+    .lg{
+        font-size: 2vw;
+    }
  
     .main-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         flex-direction: column;
-        height: 100%;
+        position: absolute;
         width: 100%;
-        padding:0;
-
+        overflow-x: hidden;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        
     }
     .left{
         width: 80%;
@@ -118,14 +133,117 @@ button{
     form{
         width: 100%;
         margin:auto;
-        
+        align-self: center;
     }
     .right .techie{
         display: none;
     }
-    
+    h1{
+     font-size: 3vw;  
+    }
     label,input,button,.submit a{
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 }
 
+@media screen and (max-width:768px) and (min-width:577px){
+    .main-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        
+    }
+    
+    .left{
+        width: 50%;
+        margin:auto;
+    }
+    .right{
+        width: 40%;
+    }
+    form{
+        width: 90%;
+        margin:auto;
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width:992px) and (min-width:769px){
+    .main-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        
+    }
+
+    .left{
+        width: 50%;
+        margin:auto;
+    }
+    .right{
+        width: 45%;
+    }
+    form{
+        width: 90%;
+        margin:auto;
+        justify-self: center;
+    }
+
+}
+
+@media screen and (max-width:1200px) and (min-width:993px){
+    .main-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        
+    }
+
+    .left{
+        width: 45%;
+        margin:auto;
+    }
+    .right{
+        width: 45%;
+    }
+    form{
+        width: 100%;
+        margin:auto;
+        justify-self: center;
+    }
+
+
+}
+
+
+@media screen and (max-height:600px) and (min-height:500px) {
+    .main-container{
+        margin-top: 10%;
+    }
+    
+}
+
+@media screen and (max-height:800px) and (min-height:601px) {
+    .main-container{
+        margin-top: 6%;
+    }
+    
+}
