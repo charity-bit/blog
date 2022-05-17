@@ -7,12 +7,15 @@ from . import main
 from flask import render_template,redirect,request,url_for,flash
 from .forms import PostForm
 
+from app.requests import get_quote
+
 
 
 
 @main.route('/')
 def index():
 
+    quote = get_quote()
     
     recents = []  # query recent posts
     all = Post.query.all()
@@ -37,7 +40,7 @@ def index():
    
 
     
-    return render_template('index.html',recents = recents,all = rev)
+    return render_template('index.html',recents = recents,all = rev,quote = quote)
 
 @main.route('/posts/add-post',methods = ['GET','POST'])
 @login_required
