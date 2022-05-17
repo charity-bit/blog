@@ -5,7 +5,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   margin: 5% auto;
   padding: 5%;
   box-shadow: 10px 1px 83px -3px rgba(235,235,235,0.75) inset;
@@ -43,4 +43,17 @@ input[type="submit"] {
   border: none;
   border-radius: 5px;
   font-weight: 500;
+}
+
+
+@media screen and (max-width:800px) and (min-width:100px){
+  input[type="text"] {
+    padding: 2% 1%;
+    
+  }
+
+  label,
+input {
+  font-size: 2vw;
+}
 }

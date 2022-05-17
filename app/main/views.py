@@ -1,5 +1,9 @@
 
-from cmath import log
+import imp
+
+
+import os
+
 from app.models import Post,User,Comment
 from app import db,photos
 from flask_login import current_user, login_required
@@ -7,7 +11,13 @@ from . import main
 from flask import render_template,redirect,request,url_for,flash
 from .forms import PostForm
 
+
 from app.requests import get_quote
+
+
+
+
+
 
 
 

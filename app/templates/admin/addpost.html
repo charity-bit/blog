@@ -6,6 +6,7 @@ endblock %} {% block content %}
     <h1 class="ttl">Publish Blog</h1>
   <div class="title">
     <label for="title">Title</label>
+    {{form.csrf_token}}
     {{form.title()}}
   </div>
   <div class="body">
@@ -16,4 +17,6 @@ endblock %} {% block content %}
   {{form.submit()}}
 </form>
 
-{{ckeditor.load()}} {{ckeditor.config(name = 'body')}} {% endblock %}
+{{ckeditor.load()}} 
+{{ckeditor.config(name = 'body')}} 
+{% endblock %}

@@ -15,6 +15,109 @@ href="{{url_for('static',filename= "css/post.css")}}">
       <div class="txt">
           <p>{{post.text | safe}}</p>
       </div>
+
+      <div class="comments-cont">
+        <!-- comments -->
+        <div class="comment">
+          <!-- btn comment -->
+          <p>
+            <a
+              data-bs-toggle="collapse"
+              href="#comments-{{post.id}}"
+              role="button"
+              aria-expanded="false"
+              aria-controls="comments"
+              >comment <span>{{post.comments | length}}</span></a
+            >
+          </p>
+        </div>
+        <!-- data  -->
+        <div class="collapse" id="comments-{{post.id}}">
+          <div class="comment-form">
+            <form
+              method="post"
+              id="comment-form"
+              action="/add-comment/{{post.id}}"
+            >
+              <input
+                type="text"
+                id="comm"
+                name="comment"
+                placeholder="add comment"
+              />
+              <button id="submit" type="submit">comment</button>
+            </form>
+          </div>
+
+          <div class="some-comments">
+            {% for comment in post.comments %}
+            <div class="comment-cont">
+              <div class="author">
+                {% if comment.author == post.author %}
+                <div class="auth-div">
+                  <div class="auth">
+                    <p>{{comment.user.username}}</p>
+                    <p>{{comment.date_created | format_date()}}</p>
+
+                    {% if current_user.id == comment.author or current_user.id
+                    == post.author %}
+                    <a class="delete-c" href="/comments/delete/{{comment.id}}"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        role="img"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"
+                        /></svg>
+                    </a>
+
+                    {% endif %}
+                  </div>
+                  <p class="actual-n">{{comment.comment}}</p>
+                </div>
+
+                {% else%}
+                <div class="n-author-div">
+                  <div class="n-auth">
+                    <p>{{comment.user.username}}</p>
+                    <p>{{comment.date_created | format_date()}}</p>
+                    {% if current_user.id == comment.author or current_user.id
+                    == post.author %}
+                    <a class="delete-c" href="/comments/delete/{{comment.id}}"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        role="img"
+                        width="1em"
+                        height="1em"
+                        preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"
+                        /></svg>
+                    </a>
+
+                    {% endif %}
+                  </div>
+                  <p class="actual">{{comment.comment}}</p>
+                </div>
+
+                {% endif %}
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
     {% if current_user.is_authenticated %}
         {% if current_user.id == 1%}

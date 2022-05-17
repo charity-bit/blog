@@ -45,3 +45,315 @@
 .txt{
     font-size: 1.3vw;
 }
+
+
+.comment p a{
+    color: #111;
+    font-weight: 600;
+}
+
+
+
+#comment-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:10px;
+}
+#comment-form input{
+    width: 20vw;
+    height: 5vw;
+    padding: 1px 5px;
+    font-size: .8vw;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    outline: none;
+
+}
+#comment-form button{
+  
+        font-size: 1vw;
+        align-self: flex-start;
+        background-color: #111;
+        color: #d1d1d1;
+        padding: 1%;
+        border-radius: 5px;
+        text-decoration: none;
+        border:none;
+        font-weight: 500;
+}
+
+.some-comments{
+    display: flex;
+    flex-direction: column;
+    font-size: 1vw;
+    gap:10px;
+    margin-top: 5%;
+}
+.comment-cont{
+    font-size: 1vw;
+}
+.comment-cont p{
+    font-size: 1vw !important;
+}
+
+
+.auth{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.n-auth{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.n-auth p:nth-child(1){
+    font-size: .9vw !important;
+    background-color: transparent;
+    font-weight: 600;
+    color: #111;
+    padding: 0.7% 1.5%;
+    border-radius: 15px;
+
+}
+.n-auth p:nth-child(2){
+    font-size: .7vw !important;
+}
+.auth p:nth-child(1){
+    font-size: .7vw !important;
+    background-color: #111;
+    color:#d1d1d1;
+    padding: 0.7% 1.5%;
+    border-radius: 15px;
+}
+.auth p:nth-child(2){
+    font-size: .7vw !important;
+}
+
+.actual-n{
+    font-size: .9vw !important;
+    margin-top: -1%;
+    margin-left: 1%;
+}
+
+.actual{
+    font-size: .9vw !important;
+    margin-top: -2%;
+    margin-left: 1.5%;
+
+}
+
+.delete-c{
+    font-size: 1.2vw !important;
+    display: flex;
+    margin-top: -2%;
+    
+
+}
+
+
+
+@media screen and (max-width:576px) and (min-width:100px){
+   
+.all .bg{
+    font-size: 2vw;
+}
+
+
+
+
+.content p:nth-child(1){
+    font-size: 2.2vw;
+   
+}
+.content a{
+    font-size: 1.5vw;
+    
+}
+.dt{
+    font-size: 1.5vw;
+}
+
+.btns a{
+    font-size: 1.5vw;
+    
+
+}
+.txt{
+    font-size: 2vw;
+}
+#comment-form input{
+    
+    
+    font-size: 1.5vw;
+  
+
+}
+#comment-form button{
+  
+        font-size: 2vw;
+       
+}
+
+.some-comments{
+    
+    font-size: 1.5vw;
+   
+}
+.comment-cont{
+    font-size: 1.5vw;
+}
+.comment-cont p{
+    font-size: 2vw !important;
+}
+
+
+
+.n-auth p:nth-child(1){
+    font-size: 1.5vw !important;
+  
+
+}
+.n-auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+.auth p:nth-child(1){
+    font-size: 1.5vw !important;
+   
+}
+.auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+
+.actual-n{
+    font-size: 1.5vw !important;
+   
+}
+
+.actual{
+    font-size: 1.5vw !important;
+  
+
+}
+
+.delete-c{
+    font-size: 1.5vw !important;
+    
+    
+
+}
+ 
+
+.delete-c{
+    font-size: 2vw !important;
+    display: flex;
+    margin-top: -7%;
+    
+
+}
+
+}
+
+
+@media screen and (max-width:768px) and (min-width:577px){
+.all .bg{
+    font-size: 2vw;
+}
+
+
+
+
+.content p:nth-child(1){
+    font-size: 2.2vw;
+   
+}
+.content a{
+    font-size: 1.5vw;
+    
+}
+.dt{
+    font-size: 1.5vw;
+}
+
+.btns a{
+    font-size: 1.5vw;
+    
+
+}
+.txt{
+    font-size: 2vw;
+}
+#comment-form input{
+    
+    
+    font-size: 1.5vw;
+  
+
+}
+#comment-form button{
+  
+        font-size: 2vw;
+       
+}
+
+.some-comments{
+    
+    font-size: 1.5vw;
+   
+}
+.comment-cont{
+    font-size: 1.5vw;
+}
+.comment-cont p{
+    font-size: 2vw !important;
+}
+
+
+
+.n-auth p:nth-child(1){
+    font-size: 1.5vw !important;
+  
+
+}
+.n-auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+.auth p:nth-child(1){
+    font-size: 1.5vw !important;
+   
+}
+.auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+
+.actual-n{
+    font-size: 1.5vw !important;
+   
+}
+
+.actual{
+    font-size: 1.5vw !important;
+  
+
+}
+
+.delete-c{
+    font-size: 1.5vw !important;
+    
+    
+
+}
+ 
+
+.delete-c{
+    font-size: 2vw !important;
+    display: flex;
+    margin-top: -7%;
+    
+
+}
+
+}

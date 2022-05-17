@@ -3,7 +3,7 @@ from flask_script import Manager,Server
 from flask_migrate import Migrate,MigrateCommand
 from app.models import User
 
-from app.requests import get_quote
+
 
 
 app = create_app('development')
@@ -16,7 +16,7 @@ manager = Manager(app)
 manager.add_command('server',Server)
 manager.add_command('db',MigrateCommand)
 
-get_quote()
+
 @manager.shell
 def make_shell_context():
     return dict(app = app,db = db,User = User)

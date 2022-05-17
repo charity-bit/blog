@@ -97,7 +97,7 @@ endblock %} {% block content %}
           d="m6.5 17.5l8.25-5.5L6.5 6.5l1-1.5L18 12L7.5 19z"
         />
       </svg>
-      all</a
+      all</t
     >
   </h1>
   <div class="articles">
@@ -112,7 +112,7 @@ endblock %} {% block content %}
           <span>Posted on:</span> {{one.date_created | format_date()}}
         </p>
         <div class="txt">
-          <p>{{one.text | safe}}</p>
+          <p>{{(one.text | truncate (450,True , '...'))| safe }}</p>
         </div>
         <div class="comments-cont">
           <!-- comments -->

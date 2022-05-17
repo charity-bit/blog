@@ -68,8 +68,6 @@
 .random{
     width: 50%;
     margin: 10% auto;
-   
-
 }
 .random .qt p{
     font-size: 1.2vw;
@@ -247,5 +245,294 @@
     display: flex;
     margin-top: -2%;
     
+
+}
+
+
+@media screen and (max-width:576px) and (min-width:100px){
+    .random{
+        width: 80%;
+        margin: 10% auto;
+    }
+    .random .qt p{
+        font-size: 2.5vw;
+    
+    }
+    .random .qt a{
+        font-size: 2.1vw;
+        margin-left: 5%;
+    }
+
+
+    .recents{
+        flex-direction: column;
+       
+    }
+    .one{
+        width: 70%;
+        margin:0 auto;  
+    }
+    .ttl{
+        font-size: 2.2vw;
+        font-weight: 500;
+    }
+    
+    .link{  
+        font-size: 2vw;
+        
+    }
+    .date{
+        font-size: 2vw;
+    }
+    .link svg{
+        width: 2.4vw;
+    }
+   
+    .posted-r{
+        font-size: 2.3vw;
+        
+    }
+    
+
+
+
+
+.all .bg{
+    font-size: 2vw;
+}
+
+
+
+
+.content p:nth-child(1){
+    font-size: 2.2vw;
+   
+}
+.content a{
+    font-size: 1.5vw;
+    
+}
+.dt{
+    font-size: 1.5vw;
+}
+
+.btns a{
+    font-size: 1.5vw;
+    
+
+}
+.txt{
+    font-size: 2vw;
+}
+#comment-form input{
+    
+    
+    font-size: 1.5vw;
+  
+
+}
+#comment-form button{
+  
+        font-size: 2vw;
+       
+}
+
+.some-comments{
+    
+    font-size: 1.5vw;
+   
+}
+.comment-cont{
+    font-size: 1.5vw;
+}
+.comment-cont p{
+    font-size: 2vw !important;
+}
+
+
+
+.n-auth p:nth-child(1){
+    font-size: 1.5vw !important;
+  
+
+}
+.n-auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+.auth p:nth-child(1){
+    font-size: 1.5vw !important;
+   
+}
+.auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+
+.actual-n{
+    font-size: 1.5vw !important;
+   
+}
+
+.actual{
+    font-size: 1.5vw !important;
+  
+
+}
+
+.delete-c{
+    font-size: 1.5vw !important;
+    
+    
+
+}
+ 
+
+.delete-c{
+    font-size: 2vw !important;
+    display: flex;
+    margin-top: -7%;
+    
+
+}
+
+}
+
+
+@media screen and (max-width:768px) and (min-width:577px){
+    .random{
+        width: 80%;
+        margin: 10% auto;
+    }
+    .random .qt p{
+        font-size: 2vw;
+    
+    }
+    
+    .random .qt a{
+        font-size: 1.5vw;
+        margin-left: 5%;
+    }
+  
+    .recents{
+        width: 100%;
+    }
+.one{
+    width:32%;
+}
+    .ttl{
+        font-size: 2vw;
+        font-weight: 500;
+    }
+    
+    .link{  
+        font-size: 1vw;
+        
+    }
+    .date{
+        font-size: 1vw;
+    }
+    .link svg{
+        width: 1.2vw;
+    }
+   
+    .posted-r{
+        font-size: 2.3vw;
+        
+    }
+.all .bg{
+    font-size: 2vw;
+}
+
+
+
+
+.content p:nth-child(1){
+    font-size: 2.2vw;
+   
+}
+.content a{
+    font-size: 1.5vw;
+    
+}
+.dt{
+    font-size: 1.5vw;
+}
+
+.btns a{
+    font-size: 1.5vw;
+    
+
+}
+.txt{
+    font-size: 2vw;
+}
+#comment-form input{
+    
+    
+    font-size: 1.5vw;
+  
+
+}
+#comment-form button{
+  
+        font-size: 2vw;
+       
+}
+
+.some-comments{
+    
+    font-size: 1.5vw;
+   
+}
+.comment-cont{
+    font-size: 1.5vw;
+}
+.comment-cont p{
+    font-size: 2vw !important;
+}
+
+
+
+.n-auth p:nth-child(1){
+    font-size: 1.5vw !important;
+  
+
+}
+.n-auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+.auth p:nth-child(1){
+    font-size: 1.5vw !important;
+   
+}
+.auth p:nth-child(2){
+    font-size: 1.5vw !important;
+}
+
+.actual-n{
+    font-size: 1.5vw !important;
+   
+}
+
+.actual{
+    font-size: 1.5vw !important;
+  
+
+}
+
+.delete-c{
+    font-size: 1.5vw !important;
+    
+    
+
+}
+ 
+
+.delete-c{
+    font-size: 2vw !important;
+    display: flex;
+    margin-top: -7%;
+    
+
+}
 
 }

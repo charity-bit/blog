@@ -44,3 +44,26 @@ ul li a svg{
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width:800px) and (min-width:100px) {
+
+    .logo a {
+       
+        font-size: 2.5vw;
+    
+   
+}
+    ul{
+        display: flex;
+        justify-content:right!important;
+        gap:10px !important;
+       
+    
+    }
+
+    ul li a{
+        font-size: 1.5vw;
+       
+    }
+    
+}

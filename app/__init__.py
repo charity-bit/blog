@@ -1,13 +1,18 @@
+from fileinput import filename
+import os
+
 from flask_sqlalchemy import SQLAlchemy
-
-
-from flask import Flask
+from flask import Flask,send_from_directory,request, url_for
 from config import config_options
 from flask_bootstrap import Bootstrap
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_login import LoginManager
-from flask_ckeditor import CKEditor
+from flask_ckeditor import CKEditor,upload_success,upload_fail
 
+
+
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 db = SQLAlchemy()
@@ -32,6 +37,13 @@ def create_app(config_name):
     app.config.from_object(config_options[config_name])
     configure_uploads(app,photos)
     app.config['UPLOADED_PHOTOS_DEST'] = 'app/static/photos'
+
+
+    app.config['CKEDITOR_SERVE_LOCAL'] = True
+    app.config['CKEDITOR_HEIGHT'] = 400
+    app.config['CKEDITOR_FILE_UPLOADER'] = 'upload'
+    app.config['UPLOADED_PATH'] = os.path.join(basedir, 'uploads')
+
 
     bootstrap.init_app(app)
     db.init_app(app)
@@ -59,7 +71,23 @@ def create_app(config_name):
         return "{} {} {} at {}:{}".format(month,value.day,value.year,hour,minutes)
 
         
-   
+    @app.route('/files/<filename>')
+    def uploaded_files(filename):
+        path = app.config['UPLOADED_PATH']
+        return send_from_directory(path,filename)
+
+    @app.route('/upload',methods=['POST'])
+    
+    def upload():
+        f = request.files.get('upload')
+        extension =f.filename.split('.')[-1].lower()
+        if extension not in ['jpg', 'gif', 'png', 'jpeg']:
+            return upload_fail(message='Only Image Uploads allowed!')
+
+        f.save(os.path.join(app.config['UPLOADED_PATH'],f.filename))
+        url = url_for('uploaded_files',filename=f.filename)
+        return upload_success(url,filename=f.filename)
+
 
 
     return app
